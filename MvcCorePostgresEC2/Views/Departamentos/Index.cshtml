@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MvcCorePostgresEC2.Models.Departamento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+@if(Model != null)
+{
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                IdDepartamento
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Localidad
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.IdDepartamento
+            </td>
+            <td>
+                @item.Nombre
+            </td>
+            <td>
+                @item.Localidad
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.IdDepartamento" class="btn btn-primary">Details</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+}
